@@ -8,7 +8,7 @@ public class RandomUtilTest {
 	@Test
 	public void testRandom() {
 
-		int i = RandomUtil.random(1, 3);
+		int i = RandomUtil.random(1, 120);
 		System.out.println(i);
 	}
 

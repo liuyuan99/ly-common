@@ -24,6 +24,7 @@ public class RandomUtil {
 		int[] x = new int[subs];
 		//用来过滤
 		HashSet<Integer> set = new HashSet<Integer>();
+		
 		while (set.size()!=subs) {
 			int i = random(min, max);
 			set.add(i);

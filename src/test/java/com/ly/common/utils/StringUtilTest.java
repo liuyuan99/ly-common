@@ -1,11 +1,31 @@
 package com.ly.common.utils;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 public class StringUtilTest {
-
+	@Test
+	public void testValue() {
+		String value = StringUtil.getValue("八维教育", 2);
+		/* int x=1/0; */
+		System.out.println(value);
+	}
+	
+	@Test
+	public void testNum() {
+		boolean b = StringUtil.isNum("123");
+		System.out.println(b);
+	}
+	
+	@Test
+	public void testEmail() {
+		boolean b = StringUtil.isEmail("805764579@qq.com");
+		System.out.println(b);
+	}
+	@Test
+	public void testPhone() {
+		boolean b = StringUtil.isPhone("19710137879");
+		System.out.println(b);
+	}
 	@Test
 	public void testHasLength() {
 		String str = "";

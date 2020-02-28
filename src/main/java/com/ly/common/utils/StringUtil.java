@@ -12,23 +12,53 @@ import java.util.Random;
  */
 public class StringUtil {
 
+	public static String getValue(String str,int start) {
+		
+		String s1 = str.substring(2);
+		String s2 = "";
+		for (int i = 0; i < s1.length(); i++) {
+			s2+="*";
+		}
+		return str.substring(0,2)+s2;
+		
+	}
+	
+	//判断一个字符串是否是数字 考虑整数 负数 小数
+	public static boolean isNum(String src) {
+		String reg = "(-)?[0-9]+(\\.[0-9]+)?$";
+		return src.matches(reg);
+	}
+	
+	//判断是否是中国的手机号
+	public static boolean isPhone(String src) {
+		String reg = "^1[3|4|5|7|8]\\d{9}$";
+		return src.matches(reg);
+	}
+	
+	//判断是否是邮箱
+	public static boolean isEmail(String src) {
+		String reg = "\\w+\\@\\w+\\.\\w+";
+		return src.matches(reg);
+	}
+	
 	//方法1：判断源字符串是否有值，空引号(空白字符串)也算没值 (5分)
 	public static boolean hasLength(String src){
 		return null!=src && src.length()>0;
 	}
+	
 	//方法2：判断源字符串	
 	public static boolean hasText(String src){
-		
 		return null!=src && src.trim().length()>0;
 	}
+	
 	//随机产生一个中文简体汉字
 	public static String randomChineseString() {
 	     String str = null;
 	     int highPos, lowPos;
 	     Random random = new Random();
-	     highPos = (176 + Math.abs(random.nextInt(40)));//区码，0xA0打头，从第16区开始，即0xB0=11*16=176,16~55一级汉字，56~87二级汉字
+	     highPos = (176 + Math.abs(random.nextInt(39)));//区码，0xA0打头，从第16区开始，即0xB0=11*16=176,16~55一级汉字，56~87二级汉字
 	     random=new Random();
-	     lowPos = 161 + Math.abs(random.nextInt(95));//位码，0xA0打头，范围第1~94列
+	     lowPos =	 161 + Math.abs(random.nextInt(94));//位码，0xA0打头，范围第1~94列
 	     byte[] bArr = new byte[2];
 	      
 	     bArr[0] = (new Integer(highPos)).byteValue();
