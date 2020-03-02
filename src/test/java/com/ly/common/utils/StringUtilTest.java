@@ -1,8 +1,15 @@
 package com.ly.common.utils;
 
+import java.io.FileNotFoundException;
+
 import org.junit.Test;
 
 public class StringUtilTest {
+	@Test
+	public void getPlaceholderValue() throws FileNotFoundException {
+		String value = StringUtil.getPlaceholderValue("444451551","2");
+		System.out.println(value);
+	}
 	@Test
 	public void testValue() {
 		String value = StringUtil.getValue("八维教育", 2);

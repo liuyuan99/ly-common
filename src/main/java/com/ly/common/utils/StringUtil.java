@@ -1,5 +1,9 @@
 package com.ly.common.utils;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 import java.util.Random;
 
@@ -11,7 +15,16 @@ import java.util.Random;
  * @date: 2020年2月28日 上午12:43:27
  */
 public class StringUtil {
-
+	/*
+	* 方法功能：根据正则在字符串提取一段值，用于后面在url地址里提取ID值。
+	* 例如在“http://news.cnstock.com/news,yw-201908-4413224.htm”把“4413224”提取出来。
+	*/
+	public static String getPlaceholderValue(String src, String regex) throws FileNotFoundException{
+		String s1 = src.substring(2);
+		
+		return s1;
+	}
+	
 	public static String getValue(String str,int start) {
 		
 		String s1 = str.substring(2);
