@@ -19,10 +19,17 @@ public class StringUtil {
 	* 方法功能：根据正则在字符串提取一段值，用于后面在url地址里提取ID值。
 	* 例如在“http://news.cnstock.com/news,yw-201908-4413224.htm”把“4413224”提取出来。
 	*/
-	public static String getPlaceholderValue(String src, String regex) throws FileNotFoundException{
-		String s1 = src.substring(2);
+	public static String getPlaceholderValue(String src, String regex){
+		String src1="";
+		regex="^\\d{7}+\\.+[a-z]+";
+		String[] split = src.split("-");
+		for (String string : split) {
+			if(string.matches(regex)) {
+				src1=string.substring(0, 7);
+			}
+		}
 		
-		return s1;
+		return src1;
 	}
 	
 	public static String getValue(String str,int start) {

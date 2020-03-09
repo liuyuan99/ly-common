@@ -6,9 +6,11 @@ import org.junit.Test;
 
 public class StringUtilTest {
 	@Test
-	public void getPlaceholderValue() throws FileNotFoundException {
-		String value = StringUtil.getPlaceholderValue("444451551","2");
-		System.out.println(value);
+	public void getPlaceholderValue() {
+		String src="http://news.cnstock.com/news,yw-201908-4413224.htm";
+		String regex="^\\d{7}+\\.+[a-z]+$";
+		String placeholderValue = StringUtil.getPlaceholderValue(src, regex);
+		System.out.println(placeholderValue);
 	}
 	@Test
 	public void testValue() {
