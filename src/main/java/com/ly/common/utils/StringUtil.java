@@ -1,10 +1,9 @@
 package com.ly.common.utils;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Random;
 
 /**
@@ -15,6 +14,30 @@ import java.util.Random;
  * @date: 2020年2月28日 上午12:43:27
  */
 public class StringUtil {
+	
+	/**
+	 * 
+	 * @Title: isHttpUrl 
+	 * @Description: 效验传入的参数是否为url
+	 * @param param
+	 * @return
+	 * @return: boolean
+	 * @throws IOException 
+	 */
+	public static boolean isHttpUrl(String param) throws IOException {
+	
+		URL url;
+		try {
+			url = new URL(param);
+			url.openStream();
+			return true;  //url合法
+		} catch (MalformedURLException e) {
+			System.out.println("连接打不开");
+		}
+		return false;
+		
+	}
+	
 	/*
 	* 方法功能：根据正则在字符串提取一段值，用于后面在url地址里提取ID值。
 	* 例如在“http://news.cnstock.com/news,yw-201908-4413224.htm”把“4413224”提取出来。

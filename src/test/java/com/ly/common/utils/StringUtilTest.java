@@ -1,10 +1,19 @@
 package com.ly.common.utils;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import org.junit.Test;
 
 public class StringUtilTest {
+	
+	@Test
+	public void testUrl() throws IOException {
+		boolean b = StringUtil.isHttpUrl("https://www.baidu.com/");
+		System.out.println(b);
+		boolean b1 = StringUtil.isHttpUrl("123https://www.baidu.com/");
+		System.out.println(b1);
+	}
+	
 	@Test
 	public void getPlaceholderValue() {
 		String src="http://news.cnstock.com/news,yw-201908-4413224.htm";
